@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Person {{ person.firstname }} {{ person.lastname }}</h1>
+    <p>{{ person.birthday }}
+        <a href="/kingdom/show/{{ person.kingdom_id }}">{{ person.kingdom_name }}</a>
+    </p>
+    <a href="/person/edit/{{ person.id }}">Edit</a>
+    <a href="/person/delete/{{person.id}}">Supprimer</a>
+    <a href="/person/index">Back</a>
+{% endblock %}

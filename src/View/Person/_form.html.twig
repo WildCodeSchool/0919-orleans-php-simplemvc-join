@@ -1,0 +1,31 @@
+<form method="post">
+    <input type="hidden" value="{{ person.id }}" name="id">
+    <div class="form-group">
+        <ul class="alert alert-danger">
+        {%- for error in errors.firstname %}
+            <li>{{ error }}</li>
+        {% endfor -%}
+        </ul>
+        <label for="firstname">Firstname</label>
+        <input class="form-control" id="firstname" type="text" value="{{ person.firstname }}" name="firstname">
+    </div>
+    <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input class="form-control" id="lastname" type="text" value="{{ person.lastname }}" name="lastname">
+    </div>
+
+    <div class="form-group">
+        <label for="birthday">Birthday</label>
+        <input class="form-control" id="birthday" type="date" value="{{ person.birthday }}" name="birthday">
+    </div>
+    <div class="form-group">
+        <label for="kingdom_id">Kingdom</label>
+        <select class="form-control" id="kingdom_id" name="kingdom_id">
+            {% for kingdom in kingdoms %}
+                <option value="{{ kingdom.id }}" {{ kingdom.id==person.kingdom_id ? "selected" }} >{{ kingdom.name }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+    <input class="btn btn-primary" type="submit" value="Valider">
+</form>

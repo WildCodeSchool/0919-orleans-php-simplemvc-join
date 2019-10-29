@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Kingdoms</h1>
+    <ul>
+        {% for kingdom in kingdoms %}
+            <li><a href="/kingdom/show/{{ kingdom.id }}">{{ kingdom.id }}. {{ kingdom.name }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    <a href="/kingdom/add">Ajouter</a>
+{% endblock %}
